@@ -14,6 +14,6 @@ describe "the add a user process" do
     visit new_user_path
     fill_in 'Email', :with => ''
     click_on 'Sign Up'
-    expect(page).to have_content 'There was a problem'
+    expect(page).to have_content 'Please provide'
   end
 end
