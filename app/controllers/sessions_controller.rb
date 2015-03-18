@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new
-    @session = Session.new
-  end
-
   def create
     @user = User.authenticate(params[:email], params[:password])
     if @user
@@ -21,3 +17,5 @@ class SessionsController < ApplicationController
     flash[:notice] = "You've been logged out successfully."
     redirect_to "/"
   end
+
+end

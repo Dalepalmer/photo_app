@@ -2,16 +2,18 @@ require 'rails_helper'
 
 describe "the add a user process" do
   it "adds a new user" do
-    visit users_path
-    click_on 'Add list'
-    fill_in 'Name', :with => 'Home stuff'
-    click_on 'Create List'
-    expect(page).to have_content 'Lists'
+    visit new_user_path
+    fill_in 'Email', :with => 'test@test.com'
+    fill_in 'Password', :with => 'testword'
+    fill_in 'Password confirmation', :with => 'testword'
+    click_on 'Sign Up'
+    expect(page).to have_content 'Welcome'
   end
 
-  it "gives error when no name is entered" do
-    visit new_list_path
-    click_on 'Create List'
-    expect(page).to have_content 'errors'
+  it "gives error when no email is entered" do
+    visit new_user_path
+    fill_in 'Email', :with => ''
+    click_on 'Sign Up'
+    expect(page).to have_content 'There was a problem'
   end
 end
