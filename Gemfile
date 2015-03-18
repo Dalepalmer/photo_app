@@ -8,6 +8,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
+gem 'paperclip', "~> 4.2"
 
 group :development do
   gem 'byebug'
@@ -23,4 +24,5 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'launchy'
 end
