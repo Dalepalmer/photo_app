@@ -8,9 +8,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.new(user_params)
-    if @user.save
+    if !@user.is_email?
+      flash[:alert] = "Please provide a valid email address."
+      redirect_to :back
+    elsif @user.save
       flash[:notice] = "Welcome to the photo app!"
       redirect_to "/"
     else
