@@ -1,0 +1,10 @@
+<%= @user.email %>
+
+<% @user.photos.each  do |photo|  %>
+
+<%= image_tag photo.image.url(:thumb) %>
+
+<% end %>
+
+
+<%= link_to 'Add Photo', new_user_photo_path(@user) %>
