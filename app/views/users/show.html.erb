@@ -2,9 +2,11 @@
 
 <% @user.photos.each  do |photo|  %>
 
-<%= image_tag photo.image.url(:thumb) %>
+  <%= image_tag photo.image.url %>
 
 <% end %>
+
+<%= @user.photos.count %>
 
 
 <%= link_to 'Add Photo', new_user_photo_path(@user) %>
