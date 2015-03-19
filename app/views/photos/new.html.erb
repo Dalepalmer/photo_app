@@ -1,7 +1,8 @@
+<div class="container">
 <h1> Add a Bird! </h1>
-
 <%= render 'layouts/errors', object: @photo %>
 <%= form_for @photo, :url => user_photos_path, :html => { :multipart => true } do |form| %>
-  <%= form.file_field :image %>
+  <%= form.file_field :image, :required => true %>
   <%= form.submit %>
 <% end %>
+</div>
