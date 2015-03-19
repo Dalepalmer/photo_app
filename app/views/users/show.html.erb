@@ -1,9 +1,18 @@
-<%= @user.email %>
 
+<div class="container">
+<h1><%= @user.email %>'s profile </h1>
+</div>
 <% @user.photos.each  do |photo|  %>
-
-  <%= image_tag photo.image.url %>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= image_tag photo.image.url %>
+      <%= link_to "Delete", user_photo_path(@user, photo),
+      :data => {:confirm => "Do you really want to delete this masterpiece?",
+      :method => "delete"} %>
+    </div>
+  </div>
+</div>
 <% end %>
 
 <%= @user.photos.count %>
