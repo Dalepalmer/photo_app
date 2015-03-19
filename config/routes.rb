@@ -2,11 +2,8 @@ Rails.application.routes.draw do
   root :to => 'home#index'
 
   resources :users do
-    resources :sessions do
-      resources :photos
-    end
+    resources :photos
   end
-
 
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"
