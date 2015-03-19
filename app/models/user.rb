@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :photos
   attr_accessor :password
 
-
   validates :email, :presence => true
   validates :password, :presence => true
   validates :password_confirmation, :presence => true

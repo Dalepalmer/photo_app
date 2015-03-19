@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    @photo = Photo.create()
+    @photo = Photo.new
   end
 
 private
