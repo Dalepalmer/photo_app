@@ -1,0 +1,15 @@
+<div class="container">
+<h1><%= @user.email %>'s profile </h1>
+</div>
+<% @user.photos.each  do |photo|  %>
+<div class="row">
+  <div class="col-md-4">
+      <%= image_tag photo.image.url %>
+  </div>
+</div>
+<% end %>
+
+<%= @user.photos.count %>
+
+
+<%= link_to 'Add Photo', new_user_photo_path(@user) %>

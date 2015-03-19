@@ -15,6 +15,15 @@ class PhotosController < ApplicationController
     @photo = Photo.new
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @photo = Photo.find(params[:id])
+      if @photo.destroy
+        flash[:alert] = "Photo successfully deleted!"
+      end
+        redirect_to :back
+  end
+
 private
   def photo_params
     params.require(:photo).permit(:image)
